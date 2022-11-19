@@ -11,6 +11,12 @@ this repo contains a script that helps organize the matrix of solutions for the 
 
 
 ## todo
+- [x] santa check
+    - check to see if a solution matrix folder exists i.e `AoC year` + `language` + `day`
+- [ ] santa create
+    - given a solution matrix, create the folder to house solution
+- [ ] santa data
+    - store problem data for a given AoC year and day
 - [ ] migrate santa to fish shell
 
 
