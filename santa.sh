@@ -8,17 +8,6 @@ var_exists() {
     fi
 }
 
-get_args() {
-    while [[ "$1" ]]; do
-
-        case $1 in
-            "--arg") arg="Howdy"
-        esac
-        echo $1
-        shift
-    done
-}
-
 check_cmd_action() {
     case $1 in
         "list") action="list";;
@@ -64,7 +53,7 @@ commands \n
 check\t\tChecks for existance of an advent directory for a particular configuration\n
 \t\t\tex: santa check 2015 -> checks if \$ADVENT_DIR/2015 directory is created\n
 \t\t\tex: santa check 2016 java -> checks if \$ADVENT_DIR/2016/java\n
-\t\t\tex: santa check 2016 java 12 -> checks if \$ADVENT_DIR/2016/java/12\n
+\t\t\tex: santa check 2016 java 12 -> checks if \$ADVENT_DIR/2016/java/day12\n
 EOF
 )
 
@@ -121,6 +110,13 @@ valid_day() {
         return 0
     fi
     return 1
+}
+
+get_advent_path() {
+    year=$1
+    if ! valid_year "$year"; then
+        return 1
+    fi
 }
 
 handle_check() {
@@ -183,11 +179,30 @@ handle_check() {
     return $out
 }
 
+handle_add() {
+    
+    if handle_check "$@"; then
+        return 0
+    fi
+    
+    # prob_path="$ADVENT_HOME"
+    # while [[ "$1" ]]; do
+    #     prob_path="$prob_path/$1"
+    #     shift
+    # done
+    
+    # mkdir -p "$prob_path"
+    return $?
+}
+
 check_action() {
     case $1 in 
         check)
             shift
             handle_check "$@";;
+        add)
+            shift
+            handle_add "$@";;
         help)
             print_help;;
         *)

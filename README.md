@@ -8,7 +8,11 @@ this repo contains my progress in trying to solve different Advent of Code probl
 ## 🎅 the santa script
 this repo contains a script that helps organize the matrix of solutions for the year & day of a AoC problem and the programming language used to solve said problem. 
 
+#### python
+- [x] santa check
 
+#### bash
+- [x] santa check
 
 ## todo
 - [x] santa check
@@ -17,16 +21,7 @@ this repo contains a script that helps organize the matrix of solutions for the 
     - given a solution matrix, create the folder to house solution
 - [ ] santa data
     - store problem data for a given AoC year and day
+
+translations
+- [ ] feature parity in bash
 - [ ] migrate santa to fish shell
-
-
-## advent matrix progress
-- 2015
-    - [ ] python3
-- 2016
-- 2017
-- 2018
-- 2019
-- 2020
-- 2021
-- 2022
