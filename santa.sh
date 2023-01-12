@@ -135,7 +135,7 @@ handle_check() {
     if ! var_exists "$2"; then 
         check_directory "$year"
         out=$?
-        if $out; then
+        if  [ $out -eq 0 ]; then
             echo "Directory exists for Advent Year = $year"
         else
             echo "Directory for Advent Year = $year does NOT exist"
@@ -153,7 +153,7 @@ handle_check() {
     if ! var_exists "$3"; then 
         check_directory "$year" "$lang"
         out=$?
-        if $out; then
+        if  [ $out -eq 0 ]; then
             echo "Directory exists for Advent Year = $year and Language = $lang"
         else
             echo "Directory for Advent Year = $year and Language = $lang does NOT exist"
